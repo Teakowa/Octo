@@ -10,7 +10,7 @@ class Guzzle implements Adapter
     private $client;
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function __construct(Header $headers, string $baseURI = null)
     {
@@ -22,7 +22,7 @@ class Guzzle implements Adapter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function get(string $uri, array $data = [], array $headers = []): ResponseInterface
     {
@@ -30,7 +30,7 @@ class Guzzle implements Adapter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function post(string $uri, array $data = [], array $headers = []): ResponseInterface
     {
@@ -38,7 +38,7 @@ class Guzzle implements Adapter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function put(string $uri, array $data = [], array $headers = []): ResponseInterface
     {
@@ -46,7 +46,7 @@ class Guzzle implements Adapter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function patch(string $uri, array $data = [], array $headers = []): ResponseInterface
     {
@@ -54,7 +54,7 @@ class Guzzle implements Adapter
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function delete(string $uri, array $data = [], array $headers = []): ResponseInterface
     {
@@ -63,7 +63,7 @@ class Guzzle implements Adapter
 
     public function request(string $method, string $uri, array $data = [], array $headers = [])
     {
-        if (! in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
+        if (!in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
             throw new \InvalidArgumentException('Request method must be get, post, put, patch, or delete');
         }
 
@@ -89,7 +89,7 @@ class Guzzle implements Adapter
             throw new ResponseException($json->errors[0]->message, $json->errors[0]->code);
         }
 
-        if (isset($json->success) && ! $json->success) {
+        if (isset($json->success) && !$json->success) {
             throw new ResponseException('Request was unsuccessful.');
         }
     }

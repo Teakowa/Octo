@@ -5,7 +5,7 @@ use Teakowa\Octo\Adapter\Guzzle as Adapter;
 use Teakowa\Octo\Adapter\Headers;
 
 /**
- * Class testKugou
+ * Class testKugou.
  */
 class testKugou extends TestCase
 {
@@ -36,18 +36,12 @@ class testKugou extends TestCase
      */
     private $api;
 
-    /**
-     *
-     */
     public function setUp(): void
     {
         $this->adapter = new Adapter(new Headers($this->headers));
-        $this->api     = new Teakowa\Octo\Provider\Kugou($this->adapter);
+        $this->api = new Teakowa\Octo\Provider\Kugou($this->adapter);
     }
 
-    /**
-     *
-     */
     public function testArtistClass()
     {
         $class = $this->api->artist()->class();
@@ -55,9 +49,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('classid', $class->list[0]);
     }
 
-    /**
-     *
-     */
     public function testArtistList()
     {
         $list = $this->api->artist()->list(1);
@@ -65,9 +56,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('singerid', $list->singers->list->info[0]);
     }
 
-    /**
-     *
-     */
     public function testArtistInfo()
     {
         $artist = $this->api->artist()->info($this->artist);
@@ -76,9 +64,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('singerid', $artist->info);
     }
 
-    /**
-     *
-     */
     public function testArtistFans()
     {
         $fans = $this->api->artist()->fans($this->artist, 70634285);
@@ -87,9 +72,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('fansnum', $fans->data);
     }
 
-    /**
-     *
-     */
     public function testNewSong()
     {
         $new = $this->api->song()->new();
@@ -97,9 +79,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('hash', $new->data[0]);
     }
 
-    /**
-     *
-     */
     public function testSongInfo()
     {
         $info = $this->api->song()->info($this->song);
@@ -107,9 +86,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('hash', $info);
     }
 
-    /**
-     *
-     */
     public function testSongSpecial()
     {
         $special = $this->api->song()->special($this->song);
@@ -117,9 +93,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('albumid', $special->data->info->album);
     }
 
-    /**
-     *
-     */
     public function testAlbum()
     {
         $album = $this->api->album($this->album);
@@ -127,9 +100,6 @@ class testKugou extends TestCase
         self::assertObjectHasAttribute('hash', $album->list[0]);
     }
 
-    /**
-     *
-     */
     public function testSearch()
     {
         $result = $this->api->search('Octo');

@@ -8,9 +8,7 @@ use Teakowa\Octo\Provider\Kugou\Song;
 use Teakowa\Octo\Traits\BodyAccessorTrait;
 
 /**
- * Class Kugou
- *
- * @package Teakowa\Octo\Provider
+ * Class Kugou.
  */
 class Kugou implements API
 {
@@ -20,7 +18,7 @@ class Kugou implements API
     /**
      * Kugou constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
      */
     public function __construct(Adapter $adapter)
     {
@@ -45,8 +43,8 @@ class Kugou implements API
 
     public function album(int $id): \stdClass
     {
-        $url        = 'http://m.kugou.com/app/i/getablum.php';
-        $album      = $this->adapter->get($url, ['type' => 1, 'ablumid' => $id]);
+        $url = 'http://m.kugou.com/app/i/getablum.php';
+        $album = $this->adapter->get($url, ['type' => 1, 'ablumid' => $id]);
         $this->body = json_decode($album->getBody());
 
         return (object) $this->body;
@@ -54,8 +52,8 @@ class Kugou implements API
 
     public function search(string $keyword, int $page = null): \stdClass
     {
-        $url        = 'http://songsearch.kugou.com/song_search_v2';
-        $result     = $this->adapter->get($url, ['keyword' => $keyword, 'page' => $page]);
+        $url = 'http://songsearch.kugou.com/song_search_v2';
+        $result = $this->adapter->get($url, ['keyword' => $keyword, 'page' => $page]);
         $this->body = json_decode($result->getBody());
 
         return (object) $this->body;
