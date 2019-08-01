@@ -1,0 +1,36 @@
+{
+    "name": "teakowa/octo",
+    "description": "A composer package to simple use music service API.",
+    "type": "library",
+    "require": {
+        "php": "^7.1.3",
+        "psr/http-message": "~1.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "phpunit/phpunit": "^7.5 || ^8.0"
+    },
+    "license": ["Apache-2.0","Anti-996"],
+    "authors": [
+        {
+            "name": "Teakowa",
+            "email": "contact@teakowa.me",
+            "homepage": "https://teakowa.me",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Teakowa\\Octo\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
