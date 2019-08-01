@@ -12,7 +12,7 @@
         "friendsofphp/php-cs-fixer": "^2.15",
         "phpunit/phpunit": "^7.5 || ^8.0"
     },
-    "license": ["Apache-2.0","Anti-996"],
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Teakowa",
