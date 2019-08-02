@@ -13,7 +13,18 @@ use Teakowa\Octo\Traits\BodyAccessorTrait;
 class Kugou implements API
 {
     use BodyAccessorTrait;
-    private $adapter;
+    /**
+     * @var \Teakowa\Octo\Adapter\Adapter
+     */
+    protected $adapter;
+    /**
+     * @var string
+     */
+    protected $url = 'http://m.kugou.com/';
+    /**
+     * @var array
+     */
+    protected $header;
 
     /**
      * Kugou constructor.
@@ -23,6 +34,10 @@ class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
+        $this->header  = [
+            'User-Agent'    => 'IPhone-8990-searchSong',
+            'UNI-UserAgent' => 'iOS11.4-Phone8990-1009-0-WiFi',
+        ];
     }
 
     /**
