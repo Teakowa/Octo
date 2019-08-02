@@ -1,0 +1,149 @@
+{
+    "code": 0,
+    "data": {
+        "list": [
+            {
+                "Flisten_count1": 0,
+                "Fupload_time": "2013-05-15 14:39:52",
+                "index": 1,
+                "isnew": 0,
+                "listenCount": 0,
+                "musicData": {
+                    "action": {
+                        "alert": 11,
+                        "icons": 135752,
+                        "msgdown": 0,
+                        "msgfav": 0,
+                        "msgid": 0,
+                        "msgpay": 0,
+                        "msgshare": 0,
+                        "switch": 3227447
+                    },
+                    "album": {
+                        "id": 429064,
+                        "mid": "003vQqqR1U3xzD",
+                        "name": "中国合伙人 电影原声带",
+                        "subtitle": "《中国合伙人》电影主题曲",
+                        "time_public": "2013-05-16",
+                        "title": "中国合伙人 电影原声带"
+                    },
+                    "bpm": 65,
+                    "data_type": 0,
+                    "file": {
+                        "b_30s": 0,
+                        "e_30s": 0,
+                        "hires_bitdepth": 0,
+                        "hires_sample": 0,
+                        "media_mid": "000KFFxP2gJhhH",
+                        "size_128mp3": 3409123,
+                        "size_192aac": 4826339,
+                        "size_192ogg": 4565810,
+                        "size_24aac": 655646,
+                        "size_320mp3": 8520131,
+                        "size_48aac": 1304230,
+                        "size_96aac": 2495054,
+                        "size_ape": 0,
+                        "size_dts": 0,
+                        "size_flac": 0,
+                        "size_hires": 0,
+                        "size_try": 0,
+                        "try_begin": 44179,
+                        "try_end": 57629,
+                        "url": ""
+                    },
+                    "fnote": 8013,
+                    "genre": 1,
+                    "id": 4819407,
+                    "index_album": 1,
+                    "index_cd": 0,
+                    "interval": 212,
+                    "isonly": 0,
+                    "ksong": {
+                        "id": 86,
+                        "mid": "003CXGlQ236Un7"
+                    },
+                    "label": "4611686018435776513",
+                    "language": 0,
+                    "mid": "000KFFxP2gJhhH",
+                    "modify_stamp": 0,
+                    "mv": {
+                        "id": 199550,
+                        "name": "",
+                        "title": "",
+                        "vid": "k0012in2cdn"
+                    },
+                    "name": "光阴的故事",
+                    "pay": {
+                        "pay_down": 0,
+                        "pay_month": 0,
+                        "pay_play": 0,
+                        "pay_status": 0,
+                        "price_album": 0,
+                        "price_track": 0,
+                        "time_free": 0
+                    },
+                    "singer": [
+                        {
+                            "id": 7199,
+                            "mid": "00418lWJ21JN1l",
+                            "name": "黄晓明",
+                            "title": "黄晓明",
+                            "type": 0,
+                            "uin": 0
+                        },
+                        {
+                            "id": 12530,
+                            "mid": "0039Dmhi0dVZc9",
+                            "name": "邓超",
+                            "title": "邓超",
+                            "type": 0,
+                            "uin": 0
+                        },
+                        {
+                            "id": 7160,
+                            "mid": "00040DLS2VlCQ5",
+                            "name": "佟大为",
+                            "title": "佟大为",
+                            "type": 0,
+                            "uin": 0
+                        }
+                    ],
+                    "size_128": null,
+                    "size_128mp3": null,
+                    "size_192ogg": null,
+                    "size_320": null,
+                    "size_320mp3": null,
+                    "size_48aac": null,
+                    "size_aac": null,
+                    "size_ogg": null,
+                    "status": 0,
+                    "subtitle": "《中国合伙人》电影主题曲",
+                    "time_public": "2013-05-16",
+                    "title": "光阴的故事",
+                    "trace": "",
+                    "type": 0,
+                    "url": "http:\/\/stream4.qqmusic.qq.com\/16819407.wma",
+                    "version": 0,
+                    "volume": {
+                        "gain": -1.1090,
+                        "lra": 9.739000000000001,
+                        "peak": 0.9560
+                    }
+                },
+                "playurl": "",
+                "price": 320,
+                "vid": {
+                    "Fmv_id": "199550",
+                    "Fstatus": "1",
+                    "Fvid": "k0012in2cdn"
+                }
+            }
+        ],
+        "singer_id": "7199",
+        "singer_mid": "00418lWJ21JN1l",
+        "singer_name": "黄晓明",
+        "total": 80
+    },
+    "message": "succ",
+    "subcode": 0
+}

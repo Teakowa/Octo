@@ -1,0 +1,111 @@
+{
+    "code": 0,
+    "data": [
+        {
+            "action": {
+                "alert": 11,
+                "icons": 135752,
+                "msgdown": 0,
+                "msgfav": 0,
+                "msgid": 0,
+                "msgpay": 0,
+                "msgshare": 0,
+                "switch": 605971
+            },
+            "album": {
+                "id": 7200158,
+                "mid": "000H0F5w0a7qO8",
+                "name": "今后我与自己流浪",
+                "subtitle": "《哪吒之魔童降世》电影片尾曲",
+                "time_public": "2019-07-20",
+                "title": "今后我与自己流浪"
+            },
+            "bpm": 77,
+            "data_type": 0,
+            "file": {
+                "b_30s": 0,
+                "e_30s": 60000,
+                "hires_bitdepth": 0,
+                "hires_sample": 0,
+                "media_mid": "003aLIjx2X4Dw7",
+                "size_128mp3": 4436432,
+                "size_192aac": 6688391,
+                "size_192ogg": 5718355,
+                "size_24aac": 861094,
+                "size_320mp3": 11090761,
+                "size_48aac": 1689298,
+                "size_96aac": 3386844,
+                "size_ape": 0,
+                "size_dts": 0,
+                "size_flac": 52133346,
+                "size_hires": 0,
+                "size_try": 960887,
+                "try_begin": 0,
+                "try_end": 0,
+                "url": ""
+            },
+            "fnote": 0,
+            "genre": 37,
+            "id": 234706815,
+            "index_album": 1,
+            "index_cd": 0,
+            "interval": 277,
+            "isonly": 0,
+            "ksong": {
+                "id": 6051106,
+                "mid": "004fXLN62cTKyE"
+            },
+            "label": "0",
+            "language": 0,
+            "mid": "003aLIjx2X4Dw7",
+            "modify_stamp": 0,
+            "mv": {
+                "id": 1551233,
+                "name": "",
+                "title": "",
+                "vid": "z0031xr1rrf"
+            },
+            "name": "今后我与自己流浪",
+            "pay": {
+                "pay_down": 0,
+                "pay_month": 0,
+                "pay_play": 0,
+                "pay_status": 0,
+                "price_album": 0,
+                "price_track": 0,
+                "time_free": 0
+            },
+            "singer": [
+                {
+                    "id": 199515,
+                    "mid": "0003ZpE43ypssl",
+                    "name": "张碧晨",
+                    "title": "张碧晨",
+                    "type": 1,
+                    "uin": 0
+                }
+            ],
+            "status": 31,
+            "subtitle": "《哪吒之魔童降世》电影片尾曲",
+            "time_public": "2019-07-20",
+            "title": "今后我与自己流浪",
+            "trace": "",
+            "type": 0,
+            "url": "http:\/\/stream0.qqmusic.qq.com\/246706815.wma",
+            "version": 0,
+            "volume": {
+                "gain": -5.0720,
+                "lra": 16.7480,
+                "peak": 0.9320000000000001
+            }
+        }
+    ],
+    "url": {
+        "234706815": "ws.stream.qqmusic.qq.com\/C100003aLIjx2X4Dw7.m4a?fromtag=38"
+    },
+    "url1": {},
+    "extra_data": [],
+    "joox": 0,
+    "joox_login": 0,
+    "msgid": 0
+}

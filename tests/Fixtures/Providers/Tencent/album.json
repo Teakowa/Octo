@@ -1,0 +1,139 @@
+{
+    "code": 0,
+    "data": {
+        "aDate": "2019-08-02",
+        "albumTips": "",
+        "color": 5643298,
+        "company": "华纳唱片",
+        "company_new": {
+            "brief": "",
+            "headPic": "http:\/\/y.gtimg.cn\/music\/common\/upload\/t_company_picture\/37146.jpg",
+            "id": 3,
+            "is_show": 1,
+            "name": "华纳唱片"
+        },
+        "cur_song_num": 2,
+        "desc": "电影《烈火英雄》致敬宣传曲《别哭，我最爱的人》正式上线，邀请了电影《烈火英雄》中饰演消防队长江立伟的黄晓明演唱，歌曲由郑智化作词作曲，崔博进行编曲及制作。黄晓明深情的献唱，真情实感的表达，将消防员的内心活动进行了完美的演绎。\n\n只要警铃声响起，消防员们总是以最快的速度赶往现场，在火场中无畏前行。影片中的消防队长江立伟（黄晓明饰）亦如此，但这些消防员们也有着自己的家庭，他们也扮演者父亲、丈夫、儿子等角色。歌曲站在江立伟的角度，向最爱的人们表达自己内心的情感，将那些说出口、没说出口的话都唱进了这首歌里。\n\n歌曲《别哭，我最爱的人》由完美青春OST制作及营销，别哭，我最爱的人，灭了这场火，我就回来见你。",
+        "genre": "Soundtrack 原声",
+        "id": 7264512,
+        "lan": "国语",
+        "list": [
+            {
+                "albumdesc": "《烈火英雄》电影致敬宣传曲",
+                "albumid": 7264512,
+                "albummid": "0021FA3L3Wh7GA",
+                "albumname": "别哭，我最爱的人",
+                "alertid": 21,
+                "belongCD": 1,
+                "cdIdx": 0,
+                "interval": 190,
+                "isonly": 1,
+                "label": "0",
+                "msgid": 14,
+                "pay": {
+                    "payalbum": 0,
+                    "payalbumprice": 0,
+                    "paydownload": 1,
+                    "payinfo": 1,
+                    "payplay": 0,
+                    "paytrackmouth": 1,
+                    "paytrackprice": 200,
+                    "timefree": 0
+                },
+                "preview": {
+                    "trybegin": 0,
+                    "tryend": 0,
+                    "trysize": 960887
+                },
+                "rate": 23,
+                "singer": [
+                    {
+                        "id": 7199,
+                        "mid": "00418lWJ21JN1l",
+                        "name": "黄晓明"
+                    }
+                ],
+                "size128": 3047136,
+                "size320": 7617520,
+                "size5_1": 0,
+                "sizeape": 0,
+                "sizeflac": 36660450,
+                "sizeogg": 4180827,
+                "songid": 235145373,
+                "songmid": "001WQhsk2XbHoE",
+                "songname": "别哭，我最爱的人",
+                "songorig": "别哭，我最爱的人",
+                "songtype": 0,
+                "strMediaMid": "001WQhsk2XbHoE",
+                "stream": 13,
+                "switch": 17413891,
+                "type": 0,
+                "vid": "a0031ots4bd"
+            },
+            {
+                "albumdesc": "",
+                "albumid": 7264512,
+                "albummid": "0021FA3L3Wh7GA",
+                "albumname": "别哭，我最爱的人",
+                "alertid": 21,
+                "belongCD": 2,
+                "cdIdx": 0,
+                "interval": 190,
+                "isonly": 1,
+                "label": "0",
+                "msgid": 14,
+                "pay": {
+                    "payalbum": 0,
+                    "payalbumprice": 0,
+                    "paydownload": 1,
+                    "payinfo": 1,
+                    "payplay": 0,
+                    "paytrackmouth": 1,
+                    "paytrackprice": 200,
+                    "timefree": 0
+                },
+                "preview": {
+                    "trybegin": 0,
+                    "tryend": 0,
+                    "trysize": 960887
+                },
+                "rate": 23,
+                "singer": [
+                    {
+                        "id": 7199,
+                        "mid": "00418lWJ21JN1l",
+                        "name": "黄晓明"
+                    }
+                ],
+                "size128": 3047136,
+                "size320": 7617520,
+                "size5_1": 0,
+                "sizeape": 0,
+                "sizeflac": 32608559,
+                "sizeogg": 4347619,
+                "songid": 235145372,
+                "songmid": "002sBAWl1El7E3",
+                "songname": "别哭，我最爱的人 (伴奏)",
+                "songorig": "别哭，我最爱的人",
+                "songtype": 0,
+                "strMediaMid": "002sBAWl1El7E3",
+                "stream": 13,
+                "switch": 17409795,
+                "type": 0,
+                "vid": ""
+            }
+        ],
+        "mid": "0021FA3L3Wh7GA",
+        "name": "别哭，我最爱的人",
+        "radio_anchor": 0,
+        "singerid": 7199,
+        "singermblog": "",
+        "singermid": "00418lWJ21JN1l",
+        "singername": "黄晓明",
+        "song_begin": 0,
+        "total": 2,
+        "total_song_num": 2
+    },
+    "message": "succ",
+    "subcode": 0
+}
