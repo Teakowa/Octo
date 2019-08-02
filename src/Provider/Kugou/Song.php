@@ -2,10 +2,9 @@
 
 namespace Teakowa\Octo\Provider\Kugou;
 
-use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\API;
+use Teakowa\Octo\Provider\Kugou;
 
-class Song implements API
+class Song extends Kugou
 {
     private $url;
     private $adapter;
