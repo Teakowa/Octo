@@ -18,12 +18,13 @@ class TencentArtistTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->artist()->info($this->id,null,1);
+        $result = $tencent->artist()->info($this->id, null, 1);
 
         $this->assertObjectHasAttribute('list', $result->data);
     }
 
-    public function testArtistFans(){
+    public function testArtistFans()
+    {
         $response = $this->getPsr7JsonResponseForFixture('Providers/Tencent/fans.json');
 
         $mock = $this->createMock(Adapter::class);
@@ -32,19 +33,20 @@ class TencentArtistTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->artist()->fans($this->id);
+        $result = $tencent->artist()->fans($this->id);
 
         $this->assertObjectHasAttribute('num', $result);
     }
 
-    public function testArtistPic(){
+    public function testArtistPic()
+    {
         $response = $this->getPsr7JsonResponseForFixture('Providers/Tencent/pic.json');
 
         $mock = $this->createMock(Adapter::class);
         $mock->method('get')->willReturn($response);
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->artist()->pic($this->mid);
+        $result = $tencent->artist()->pic($this->mid);
 
         $this->assertObjectHasAttribute('url', $result);
     }

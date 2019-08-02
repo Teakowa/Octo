@@ -3,9 +3,7 @@
 namespace Teakowa\Octo\Adapter;
 
 /**
- * Class Headers
- *
- * @package Teakowa\Octo\Adapter
+ * Class Headers.
  */
 class Headers implements Header
 {
@@ -17,7 +15,7 @@ class Headers implements Header
     /**
      * Headers constructor.
      *
-     * @param  array  $headers
+     * @param array $headers
      */
     public function __construct(array $headers)
     {

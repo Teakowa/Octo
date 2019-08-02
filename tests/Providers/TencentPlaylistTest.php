@@ -15,8 +15,8 @@ class TencentPlaylistTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->playlist(7107630008);
+        $result = $tencent->playlist(7107630008);
 
-        $this->assertObjectHasAttribute('songlist',$result->data->cdlist[0]);
+        $this->assertObjectHasAttribute('songlist', $result->data->cdlist[0]);
     }
 }

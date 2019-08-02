@@ -34,7 +34,7 @@ class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header  = [
+        $this->header = [
             'User-Agent'    => 'IPhone-8990-searchSong',
             'UNI-UserAgent' => 'iOS11.4-Phone8990-1009-0-WiFi',
         ];
@@ -56,6 +56,11 @@ class Kugou implements API
         return new Song($this->adapter);
     }
 
+    /**
+     * @param int $id
+     *
+     * @return \stdClass
+     */
     public function album(int $id): \stdClass
     {
         $url = 'http://m.kugou.com/app/i/getablum.php';
@@ -65,6 +70,12 @@ class Kugou implements API
         return (object) $this->body;
     }
 
+    /**
+     * @param string   $keyword
+     * @param int|null $page
+     *
+     * @return \stdClass
+     */
     public function search(string $keyword, int $page = null): \stdClass
     {
         $url = 'http://songsearch.kugou.com/song_search_v2';

@@ -14,7 +14,7 @@ class KugouSearchTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $kugou  = new Kugou($mock);
+        $kugou = new Kugou($mock);
         $result = $kugou->search('Octo');
 
         $this->assertObjectHasAttribute('lists', $result->data);

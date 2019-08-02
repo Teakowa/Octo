@@ -34,7 +34,7 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list   = new Artist($mock);
+        $list = new Artist($mock);
         $result = $list->list(1);
 
         $this->assertEquals(1, $result->classid);
@@ -49,7 +49,7 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list   = new Artist($mock);
+        $list = new Artist($mock);
         $result = $list->info($this->id);
 
         $this->assertEquals($this->id, $result->info->singerid);
@@ -64,7 +64,7 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list   = new Artist($mock);
+        $list = new Artist($mock);
         $result = $list->fans($this->id, 70634285);
 
         $this->assertObjectHasAttribute('fansnum', $result->data);

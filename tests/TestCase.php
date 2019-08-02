@@ -4,7 +4,8 @@ use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
- * Class TestCase
+ * Class TestCase.
+ *
  * @SuppressWarnings(PHPMD.NumberOfChildren)
  */
 abstract class TestCase extends BaseTestCase
@@ -12,7 +13,8 @@ abstract class TestCase extends BaseTestCase
     /**
      * Returns a PSR7 Stream for a given fixture.
      *
-     * @param  string     $fixture The fixture to create the stream for.
+     * @param string $fixture The fixture to create the stream for.
+     *
      * @return Psr7\Stream
      */
     protected function getPsr7StreamForFixture($fixture): Psr7\Stream
@@ -21,13 +23,16 @@ abstract class TestCase extends BaseTestCase
         $this->assertFileExists($path);
         $stream = Psr7\stream_for(file_get_contents($path));
         $this->assertInstanceOf(Psr7\Stream::class, $stream);
+
         return $stream;
     }
+
     /**
      * Returns a PSR7 Response (JSON) for a given fixture.
      *
-     * @param  string        $fixture    The fixture to create the response for.
-     * @param  integer       $statusCode A HTTP Status Code for the response.
+     * @param string $fixture    The fixture to create the response for.
+     * @param int    $statusCode A HTTP Status Code for the response.
+     *
      * @return Psr7\Response
      */
     protected function getPsr7JsonResponseForFixture($fixture, $statusCode = 200): Psr7\Response
@@ -35,6 +40,7 @@ abstract class TestCase extends BaseTestCase
         $stream = $this->getPsr7StreamForFixture($fixture);
         $this->assertNotNull(json_decode($stream));
         $this->assertEquals(JSON_ERROR_NONE, json_last_error());
+
         return new Psr7\Response($statusCode, ['Content-Type' => 'application/json'], $stream);
     }
 }

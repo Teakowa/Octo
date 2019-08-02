@@ -5,9 +5,7 @@ namespace Teakowa\Octo\Provider\Tencent;
 use Teakowa\Octo\Provider\Tencent;
 
 /**
- * Class Album
- *
- * @package Teakowa\Octo\Provider\Tencent
+ * Class Album.
  */
 class Album extends Tencent
 {
@@ -17,14 +15,14 @@ class Album extends Tencent
     private $body;
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param int|null    $id
+     * @param string|null $mid
      *
      * @return \stdClass
      */
     public function info(int $id = null, string $mid = null): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
             'albumid'  => $id,
             'albummid' => $mid,
             'platform' => 'mac',
@@ -37,8 +35,8 @@ class Album extends Tencent
     }
 
     /**
-     * @param  string|null  $mid
-     * @param  int  $size
+     * @param string|null $mid
+     * @param int         $size
      *
      * @return \stdClass
      */

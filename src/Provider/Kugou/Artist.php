@@ -13,7 +13,7 @@ class Artist extends Kugou
      */
     public function class(): \stdClass
     {
-        $class      = $this->adapter->get($this->url.'singer/class', ['json' => true], $this->header);
+        $class = $this->adapter->get($this->url.'singer/class', ['json' => true], $this->header);
         $this->body = json_decode($class->getBody());
 
         return (object) $this->body;
@@ -21,7 +21,7 @@ class Artist extends Kugou
 
     public function list(int $id, int $page = null): \stdClass
     {
-        $list       = $this->adapter->get($this->url.'singer/list/'.$id, [
+        $list = $this->adapter->get($this->url.'singer/list/'.$id, [
             'page' => $page, 'json' => true,
         ], $this->header);
         $this->body = json_decode($list->getBody());
@@ -31,7 +31,7 @@ class Artist extends Kugou
 
     public function info(int $id, int $page = null): \stdClass
     {
-        $info       = $this->adapter->get($this->url.'singer/info/'.$id, [
+        $info = $this->adapter->get($this->url.'singer/info/'.$id, [
             'page' => $page, 'json' => true,
         ]);
         $this->body = json_decode($info->getBody());
@@ -41,8 +41,8 @@ class Artist extends Kugou
 
     public function fans(int $id, int $uid = null): \stdClass
     {
-        $this->url  = 'http://public.service.kugou.com/user/singer';
-        $fans       = $this->adapter->get($this->url, [
+        $this->url = 'http://public.service.kugou.com/user/singer';
+        $fans = $this->adapter->get($this->url, [
             'action'   => 'getfansnum',
             'uid'      => $uid,
             'singerid' => $id,

@@ -5,9 +5,7 @@ namespace Teakowa\Octo\Provider\Tencent;
 use Teakowa\Octo\Provider\Tencent;
 
 /**
- * Class Artist
- *
- * @package Teakowa\Octo\Provider\Tencent
+ * Class Artist.
  */
 class Artist extends Tencent
 {
@@ -17,15 +15,15 @@ class Artist extends Tencent
     private $body;
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
-     * @param  int  $limit
+     * @param int|null    $id
+     * @param string|null $mid
+     * @param int         $limit
      *
      * @return \stdClass
      */
     public function info(int $id = null, string $mid = null, int $limit = 20): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_singer_track_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_singer_track_cp.fcg', [
             'singerid'  => $id,
             'singermid' => $mid,
             'begin'     => 0,
@@ -41,8 +39,8 @@ class Artist extends Tencent
     }
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param int|null    $id
+     * @param string|null $mid
      *
      * @return \stdClass
      */
@@ -60,8 +58,8 @@ class Artist extends Tencent
     }
 
     /**
-     * @param  string|null  $mid
-     * @param  int  $size
+     * @param string|null $mid
+     * @param int         $size
      *
      * @return \stdClass
      */

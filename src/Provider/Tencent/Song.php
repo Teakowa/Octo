@@ -5,9 +5,7 @@ namespace Teakowa\Octo\Provider\Tencent;
 use Teakowa\Octo\Provider\Tencent;
 
 /**
- * Class Song
- *
- * @package Teakowa\Octo\Provider\Tencent
+ * Class Song.
  */
 class Song extends Tencent
 {
@@ -17,14 +15,14 @@ class Song extends Tencent
     private $body;
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param int|null    $id
+     * @param string|null $mid
      *
      * @return object
      */
     public function info(int $id = null, string $mid = null): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
             'songid'   => $id,
             'songmid'  => $mid,
             'platform' => 'yqq',
@@ -39,19 +37,20 @@ class Song extends Tencent
      * This code source from https://github.com/metowolf/Meting/blob/master/src/Meting.php#L1005-L1075
      * ❤️ Thanks.
      *
-     * @param  int|null  $id
-     * @param  string|null  $mid
-     * @param  int  $br
+     * @param int|null    $id
+     * @param string|null $mid
+     * @param int         $br
      *
      * @return \stdClass
      */
     public function url(int $id = null, string $mid = null, int $br = 320): \stdClass
     {
         $data = $this->info($id, $mid);
+
         return $data;
 
-        $guid    = mt_rand() % 10000000000;
-        $type    = [
+        $guid = mt_rand() % 10000000000;
+        $type = [
             ['size_320mp3', 320, 'M800', 'mp3'],
             ['size_192aac', 192, 'C600', 'm4a'],
             ['size_128mp3', 128, 'M500', 'mp3'],
@@ -76,7 +75,7 @@ class Song extends Tencent
         ];
 
         foreach ($type as $vo) {
-            $payload['req_0']['param']['songmid'][]  = $data['data'][0]['mid'];
+            $payload['req_0']['param']['songmid'][] = $data['data'][0]['mid'];
             $payload['req_0']['param']['filename'][] = $vo[2].$data['data'][0]['file']['media_mid'].'.'.$vo[3];
             $payload['req_0']['param']['songtype'][] = $data['data'][0]['type'];
         }
@@ -89,10 +88,10 @@ class Song extends Tencent
         ], $this->header);
 
         $response = json_decode($result->getBody(), true);
-        $vkeys    = $response['req_0']['data']['midurlinfo'];
+        $vkeys = $response['req_0']['data']['midurlinfo'];
         foreach ($type as $index => $vo) {
             if ($data['data'][0]['file'][$vo[0]] && $vo[1] <= $br) {
-                if (! empty($vkeys[$index]['vkey'])) {
+                if (!empty($vkeys[$index]['vkey'])) {
                     $url = [
                         'url'  => $response['req_0']['data']['sip'][0].$vkeys[$index]['purl'],
                         'size' => $data['data'][0]['file'][$vo[0]],
@@ -102,7 +101,7 @@ class Song extends Tencent
                 }
             }
         }
-        if (! isset($url['url'])) {
+        if (!isset($url['url'])) {
             $url = [
                 'url'  => '',
                 'size' => 0,

@@ -15,7 +15,7 @@ class TencentSearchTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->search('Octo');
+        $result = $tencent->search('Octo');
 
         $this->assertObjectHasAttribute('list', $result->data->song);
     }

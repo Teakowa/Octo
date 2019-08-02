@@ -9,10 +9,7 @@ use Teakowa\Octo\Provider\Tencent\Song;
 use Teakowa\Octo\Traits\BodyAccessorTrait;
 
 /**
- * Class Tencent
- *
- * @package Teakowa\Octo\Provider
- *
+ * Class Tencent.
  */
 class Tencent implements API
 {
@@ -33,12 +30,12 @@ class Tencent implements API
     /**
      * Kugou constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
      */
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header  = [
+        $this->header = [
             'Referer'         => 'https://y.qq.com/',
             'Cookie'          => 'pgv_pvi=22038528; pgv_si=s3156287488; pgv_pvid=5535248600; yplayer_open=1; ts_last=y.qq.com/portal/player.html; ts_uid=4847550686; yq_index=0; qqmusic_fromtag=66; player_exist=1',
             'User-Agent'      => 'QQ%E9%9F%B3%E4%B9%90/54409 CFNetwork/901.1 Darwin/17.6.0 (x86_64)',
@@ -50,7 +47,6 @@ class Tencent implements API
     }
 
     /**
-     *
      * @return \Teakowa\Octo\Provider\Tencent\Artist
      */
     public function artist()
@@ -75,16 +71,15 @@ class Tencent implements API
     }
 
     /**
-     * @param  string  $keyword
-     *
-     * @param  int|null  $page
-     * @param  int|null  $limit
+     * @param string   $keyword
+     * @param int|null $page
+     * @param int|null $limit
      *
      * @return \stdClass
      */
     public function search(string $keyword, int $page = 1, int $limit = 30): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/client_search_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/client_search_cp.fcg', [
             'p'      => $page,
             'n'      => $limit,
             'w'      => $keyword,
@@ -96,13 +91,13 @@ class Tencent implements API
     }
 
     /**
-     * @param  int  $id
+     * @param int $id
      *
      * @return \stdClass
      */
     public function playlist(int $id): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_playlist_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_playlist_cp.fcg', [
             'id'       => $id,
             'format'   => 'json',
             'newsong'  => 1,

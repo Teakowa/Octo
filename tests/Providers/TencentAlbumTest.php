@@ -15,7 +15,7 @@ class TencentAlbumTestTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result  = $tencent->album()->info(7264512);
+        $result = $tencent->album()->info(7264512);
 
         $this->assertObjectHasAttribute('list', $result->data);
     }

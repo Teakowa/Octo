@@ -16,10 +16,10 @@ class KugouAlbumTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $kugou  = new Kugou($mock);
+        $kugou = new Kugou($mock);
         $result = $kugou->album($this->id);
 
         $this->assertObjectHasAttribute('list', $result);
-        $this->assertObjectHasAttribute('cname',$result);
+        $this->assertObjectHasAttribute('cname', $result);
     }
 }
