@@ -11,6 +11,12 @@ A composer package to simple use music service API.
 [![LICENSE](https://img.shields.io/badge/License-Apache--2.0-green.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0)
 [![996.icu](https://img.shields.io/badge/Link-996.icu-red.svg?style=flat-square)](https://996.icu)
 
+## Feature
+
+We have supported the following music service providers:
+
+- Kugou
+- Tencent
 
 ## Installation
 
@@ -24,8 +30,22 @@ composer require teakowa/octo
 $headers = new Teakowa\Octo\Adapter\Headers();
 $adapter = new Teakowa\Octo\Adapter\Guzzle($headers);
 $kugou   = new Teakowa\Octo\Provider\Kugou($adapter);
+$tencent = new Teakowa\Octo\Provider\Tencent($adapter);
     
-echo $kugou->artist()->list();
+```
+
+### Kugou
+
+```php
+$kugou->artist()->list();
+$kugou->song()->new();
+```
+
+### Tencent
+
+```php
+$tencent->artist()->info($id);
+$tencent->album()->pic($mid);
 ```
 
 ## LICENSE
