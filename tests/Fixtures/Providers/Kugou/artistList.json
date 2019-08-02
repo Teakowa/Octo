@@ -1,0 +1,34 @@
+{
+    "JS_CSS_DATE": 20130320,
+    "kg_domain": "http:\/\/m.kugou.com",
+    "src": "http:\/\/downmobile.kugou.com\/promote\/package\/download\/channel=6",
+    "fr": null,
+    "ver": "v3",
+    "classid": 1,
+    "classname": "华语男歌手",
+    "singers": {
+        "page": 1,
+        "pagesize": 30,
+        "total": null,
+        "list": {
+            "timestamp": 1564643175,
+            "info": [
+                {
+                    "heatoffset": 0,
+                    "sortoffset": -67,
+                    "singername": "周杰伦",
+                    "intro": "",
+                    "fanscount": 7787002,
+                    "songcount": 0,
+                    "imgurl": "http:\/\/singerimg.kugou.com\/uploadpic\/softhead\/{size}\/20180515\/20180515002522714.jpg",
+                    "banner_url": "",
+                    "is_settled": 0,
+                    "singerid": 3520,
+                    "heat": 117861,
+                    "mvcount": 0,
+                    "albumcount": 0
+                }
+            ]
+        }
+    }
+}

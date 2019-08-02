@@ -1,0 +1,35 @@
+{
+    "status": 1,
+    "errcode": 0,
+    "data": {
+        "timestamp": 1564713518,
+        "info": {
+            "kugou_indexs": [
+                22,
+                22
+            ],
+            "music_story": null,
+            "kugou_index": 22,
+            "kugou_grade": 0,
+            "album": {
+                "albumname": "LOVE YOURSELF 結 ‘Answer’",
+                "grade": "7.9",
+                "singername": "BTS（防弹少年团）",
+                "albumid": "9613798",
+                "company": "Big Hit Entertainment",
+                "trans_param": {
+                    "special_tag": "0"
+                },
+                "privilege": 0,
+                "singerid": "90573",
+                "quality": "1",
+                "publish_time": "2018-08-24",
+                "img": "http:\/\/imge.kugou.com\/stdmusic\/100\/20180827\/20180827144848589816.jpg"
+            },
+            "special": [],
+            "other_singer_version": null,
+            "other_language_version": null
+        }
+    },
+    "error": ""
+}

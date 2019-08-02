@@ -1,0 +1,60 @@
+{
+    "JS_CSS_DATE": 20130320,
+    "kg_domain": "http:\/\/m.kugou.com",
+    "src": "http:\/\/downmobile.kugou.com\/promote\/package\/download\/channel=6",
+    "fr": null,
+    "ver": "v3",
+    "list": [
+        {
+            "classid": 88,
+            "classname": "\u70ed\u95e8\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-11.jpg"
+        },
+        {
+            "classid": 1,
+            "classname": "\u534e\u8bed\u7537\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-1.jpg"
+        },
+        {
+            "classid": 2,
+            "classname": "\u534e\u8bed\u5973\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-2.jpg"
+        },
+        {
+            "classid": 3,
+            "classname": "\u534e\u8bed\u7ec4\u5408",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-3.jpg"
+        },
+        {
+            "classid": 4,
+            "classname": "\u65e5\u97e9\u7537\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-4.jpg"
+        },
+        {
+            "classid": 5,
+            "classname": "\u65e5\u97e9\u5973\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-5.jpg"
+        },
+        {
+            "classid": 6,
+            "classname": "\u65e5\u97e9\u7ec4\u5408",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-6.jpg"
+        },
+        {
+            "classid": 7,
+            "classname": "\u6b27\u7f8e\u7537\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-7.jpg"
+        },
+        {
+            "classid": 8,
+            "classname": "\u6b27\u7f8e\u5973\u6b4c\u624b",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-8.jpg"
+        },
+        {
+            "classid": 9,
+            "classname": "\u6b27\u7f8e\u7ec4\u5408",
+            "imgurl": "http:\/\/mobileimg.kugou.com\/billImage\/150\/26-9.jpg"
+        }
+    ],
+    "__Tpl": "singer\/class.html"
+}
