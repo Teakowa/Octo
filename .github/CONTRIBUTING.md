@@ -1,11 +1,17 @@
 # Contributing Guide
 
-## Which Branch?
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 
-All bug fixes should be sent to the latest stable branch. Bug fixes should never be sent to the develop branch unless they fix features that exist only in the upcoming release.
+## How To Contribute
 
-Minor features that are fully backwards compatible with the current release may be sent to the latest stable branch.
+We welcome community contribution to this repository. To help add functionality or address issues, please take the following steps:
 
-Major new features should always be sent to the develop branch, which contains the upcoming release.
-
-If you are unsure if your feature qualifies as a major or minor, sent to the develop branch.
+* Fork the repository from the master branch.
+* Create a new branch for your features / fixes.
+* Make the changes you wish to see.
+* Add tests for all changes.
+* Run `make fix` command to ensure the code is styled.
+* Run `make test` command to ensure the tests pass.
+* Create a pull request with details of what changes have been made and explanation of new behaviour.
+* Ensure documentation contains the correct information.
+* Pull requests will be reviewed and hopefully merged into a release.
