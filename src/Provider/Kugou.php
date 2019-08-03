@@ -41,19 +41,23 @@ class Kugou implements API
     }
 
     /**
+     * @param  int|null  $id
+     *
      * @return \Teakowa\Octo\Provider\Kugou\Artist
      */
-    public function artist()
+    public function artist(int $id = null): Artist
     {
-        return new Artist($this->adapter);
+        return new Artist($this->adapter, $id);
     }
 
     /**
+     * @param  string|null  $hash
+     *
      * @return \Teakowa\Octo\Provider\Kugou\Song
      */
-    public function song()
+    public function song(string $hash = null): Song
     {
-        return new Song($this->adapter);
+        return new Song($this->adapter, $hash);
     }
 
     /**

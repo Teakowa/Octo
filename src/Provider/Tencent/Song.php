@@ -2,6 +2,7 @@
 
 namespace Teakowa\Octo\Provider\Tencent;
 
+use Teakowa\Octo\Adapter\Adapter;
 use Teakowa\Octo\Provider\Tencent;
 
 /**
@@ -10,21 +11,41 @@ use Teakowa\Octo\Provider\Tencent;
 class Song extends Tencent
 {
     /**
+     * @var int|null
+     */
+    private $id;
+    /**
+     * @var string|null
+     */
+    private $mid;
+
+    /**
+     * Song constructor.
+     *
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  int|null  $id
+     * @param  string|null  $mid
+     */
+    public function __construct(Adapter $adapter, int $id = null, string $mid = null)
+    {
+        parent::__construct($adapter);
+        $this->id  = $id;
+        $this->mid = $mid;
+    }
+
+    /**
      * @var
      */
     private $body;
 
     /**
-     * @param int|null    $id
-     * @param string|null $mid
-     *
      * @return object
      */
-    public function info(int $id = null, string $mid = null): \stdClass
+    public function info(): \stdClass
     {
-        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
-            'songid'   => $id,
-            'songmid'  => $mid,
+        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
+            'songid'   => $this->id,
+            'songmid'  => $this->mid,
             'platform' => 'yqq',
             'format'   => 'json',
         ], $this->header);
@@ -37,17 +58,19 @@ class Song extends Tencent
      * This code source from https://github.com/metowolf/Meting/blob/master/src/Meting.php#L1005-L1075
      * ❤️ Thanks.
      *
-     * @param int|null    $id
-     * @param string|null $mid
-     * @param int         $br
+     * @param  int  $br
      *
      * @return \stdClass
      */
-    public function url(int $id = null, string $mid = null, int $br = 320): \stdClass
+    public function url(int $br = 320): \stdClass
     {
-        $data = $this->info($id, $mid);
-
-        return $data;
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
+            'songid'   => $this->id,
+            'songmid'  => $this->mid,
+            'platform' => 'yqq',
+            'format'   => 'json',
+        ], $this->header);
+        $data   = json_decode($result->getBody(), true);
 
         $guid = mt_rand() % 10000000000;
         $type = [

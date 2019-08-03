@@ -47,27 +47,33 @@ class Tencent implements API
     }
 
     /**
+     * @param  int|null  $id
+     * @param  string|null  $mid
+     *
      * @return \Teakowa\Octo\Provider\Tencent\Artist
      */
-    public function artist()
+    public function artist(int $id = null, string $mid = null): Artist
     {
-        return new Artist($this->adapter);
+        return new Artist($this->adapter, $id, $mid);
     }
 
     /**
-     * @return object
+     * @param  int|null  $id
+     * @param  string|null  $mid
+     *
+     * @return \Teakowa\Octo\Provider\Tencent\Song
      */
-    public function song()
+    public function song(int $id = null, string $mid = null): Song
     {
-        return new Song($this->adapter);
+        return new Song($this->adapter, $id, $mid);
     }
 
     /**
      * @return \Teakowa\Octo\Provider\Tencent\Album
      */
-    public function album()
+    public function album(int $id = null, string $mid = null): Album
     {
-        return new Album($this->adapter);
+        return new Album($this->adapter, $id, $mid);
     }
 
     /**
