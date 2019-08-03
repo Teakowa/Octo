@@ -34,9 +34,8 @@ class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header = [
-            'User-Agent'    => 'IPhone-8990-searchSong',
-            'UNI-UserAgent' => 'iOS11.4-Phone8990-1009-0-WiFi',
+        $this->header  = [
+            'User-Agent' => 'Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0',
         ];
     }
 
