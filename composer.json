@@ -2,6 +2,16 @@
     "name": "teakowa/octo",
     "description": "A composer package to simple use music service API.",
     "type": "library",
+    "keywords": [
+        "php music",
+        "music api",
+        "kugou",
+        "tencent"
+    ],
+    "support": {
+        "issues": "https://github.com/teakowa/octo/issues",
+        "source": "https://github.com/teakowa/octo"
+    },
     "require": {
         "php": ">=7.1.3",
         "psr/http-message": "~1.0",
