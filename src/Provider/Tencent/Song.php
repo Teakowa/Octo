@@ -22,14 +22,14 @@ class Song extends Tencent
     /**
      * Song constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param int|null                      $id
+     * @param string|null                   $mid
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
         parent::__construct($adapter);
-        $this->id  = $id;
+        $this->id = $id;
         $this->mid = $mid;
     }
 
@@ -43,7 +43,7 @@ class Song extends Tencent
      */
     public function info(): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
             'songid'   => $this->id,
             'songmid'  => $this->mid,
             'platform' => 'yqq',
@@ -58,7 +58,7 @@ class Song extends Tencent
      * This code source from https://github.com/metowolf/Meting/blob/master/src/Meting.php#L1005-L1075
      * ❤️ Thanks.
      *
-     * @param  int  $br
+     * @param int $br
      *
      * @return \stdClass
      */
@@ -70,7 +70,7 @@ class Song extends Tencent
             'platform' => 'yqq',
             'format'   => 'json',
         ], $this->header);
-        $data   = json_decode($result->getBody(), true);
+        $data = json_decode($result->getBody(), true);
 
         $guid = mt_rand() % 10000000000;
         $type = [

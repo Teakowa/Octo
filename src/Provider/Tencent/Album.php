@@ -22,14 +22,14 @@ class Album extends Tencent
     /**
      * Album constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param int|null                      $id
+     * @param string|null                   $mid
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
         parent::__construct($adapter);
-        $this->id  = $id;
+        $this->id = $id;
         $this->mid = $mid;
     }
 
@@ -43,7 +43,7 @@ class Album extends Tencent
      */
     public function info(): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
             'albumid'  => $this->id,
             'albummid' => $this->mid,
             'platform' => 'mac',
@@ -56,13 +56,13 @@ class Album extends Tencent
     }
 
     /**
-     * @param  int  $size
+     * @param int $size
      *
      * @return \stdClass
      */
     public function pic(int $size = 300): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
+        $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_album_info_cp.fcg', [
             'albumid'  => $this->id,
             'albummid' => $this->mid,
             'platform' => 'mac',
@@ -71,7 +71,7 @@ class Album extends Tencent
         ], $this->header);
         $this->body = json_decode($result->getBody());
 
-        $mid = ! empty($this->mid) ? $this->mid : $this->body->data->mid;
+        $mid = !empty($this->mid) ? $this->mid : $this->body->data->mid;
         $url = 'https://y.gtimg.cn/music/photo_new/T002R'.$size.'x'.$size.'M000'.$mid.'.jpg?max_age=2592000';
 
         return (object) ['url' => $url];

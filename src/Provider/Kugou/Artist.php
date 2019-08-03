@@ -6,9 +6,7 @@ use Teakowa\Octo\Adapter\Adapter;
 use Teakowa\Octo\Provider\Kugou;
 
 /**
- * Class Artist
- *
- * @package Teakowa\Octo\Provider\Kugou
+ * Class Artist.
  */
 class Artist extends Kugou
 {
@@ -24,8 +22,8 @@ class Artist extends Kugou
     /**
      * Artist constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
-     * @param  int|null  $id
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param int|null                      $id
      */
     public function __construct(Adapter $adapter, int $id = null)
     {
@@ -38,21 +36,21 @@ class Artist extends Kugou
      */
     public function class(): \stdClass
     {
-        $class      = $this->adapter->get($this->url.'singer/class', ['json' => true], $this->header);
+        $class = $this->adapter->get($this->url.'singer/class', ['json' => true], $this->header);
         $this->body = json_decode($class->getBody());
 
         return (object) $this->body;
     }
 
     /**
-     * @param  int  $id
-     * @param  int|null  $page
+     * @param int      $id
+     * @param int|null $page
      *
      * @return \stdClass
      */
     public function list(int $id, int $page = null): \stdClass
     {
-        $list       = $this->adapter->get($this->url.'singer/list/'.$id, [
+        $list = $this->adapter->get($this->url.'singer/list/'.$id, [
             'page' => $page, 'json' => true,
         ], $this->header);
         $this->body = json_decode($list->getBody());
@@ -61,13 +59,13 @@ class Artist extends Kugou
     }
 
     /**
-     * @param  int|null  $page
+     * @param int|null $page
      *
      * @return \stdClass
      */
     public function info(int $page = null): \stdClass
     {
-        $info       = $this->adapter->get($this->url.'singer/info/'.$this->id, [
+        $info = $this->adapter->get($this->url.'singer/info/'.$this->id, [
             'page' => $page, 'json' => true,
         ], $this->header);
         $this->body = json_decode($info->getBody());
@@ -76,14 +74,14 @@ class Artist extends Kugou
     }
 
     /**
-     * @param  int|null  $uid
+     * @param int|null $uid
      *
      * @return \stdClass
      */
     public function fans(int $uid = null): \stdClass
     {
-        $this->url  = 'http://public.service.kugou.com/user/singer';
-        $fans       = $this->adapter->get($this->url, [
+        $this->url = 'http://public.service.kugou.com/user/singer';
+        $fans = $this->adapter->get($this->url, [
             'action'   => 'getfansnum',
             'uid'      => $uid,
             'singerid' => $this->id,

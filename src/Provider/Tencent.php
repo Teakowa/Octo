@@ -28,7 +28,7 @@ class Tencent implements API
     protected $header;
 
     /**
-     * Kugou constructor.
+     * Tencent constructor.
      *
      * @param \Teakowa\Octo\Adapter\Adapter $adapter
      */
@@ -47,8 +47,8 @@ class Tencent implements API
     }
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param int|null    $id
+     * @param string|null $mid
      *
      * @return \Teakowa\Octo\Provider\Tencent\Artist
      */
@@ -58,8 +58,8 @@ class Tencent implements API
     }
 
     /**
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param int|null    $id
+     * @param string|null $mid
      *
      * @return \Teakowa\Octo\Provider\Tencent\Song
      */

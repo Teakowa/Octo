@@ -16,7 +16,7 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song   = new Kugou($mock);
+        $song = new Kugou($mock);
         $result = $song->song()->new();
 
         $this->assertObjectHasAttribute('hash', $result->data[0]);
@@ -31,7 +31,7 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song   = new Kugou($mock);
+        $song = new Kugou($mock);
         $result = $song->song($this->hash)->info();
 
         $this->assertObjectHasAttribute('hash', $result);
@@ -47,7 +47,7 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song   = new Kugou($mock);
+        $song = new Kugou($mock);
         $result = $song->song($this->hash)->special();
 
         $this->assertObjectHasAttribute('kugou_index', $result->data->info);

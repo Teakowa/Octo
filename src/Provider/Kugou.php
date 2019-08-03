@@ -34,13 +34,13 @@ class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header  = [
+        $this->header = [
             'User-Agent' => 'Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0',
         ];
     }
 
     /**
-     * @param  int|null  $id
+     * @param int|null $id
      *
      * @return \Teakowa\Octo\Provider\Kugou\Artist
      */
@@ -50,7 +50,7 @@ class Kugou implements API
     }
 
     /**
-     * @param  string|null  $hash
+     * @param string|null $hash
      *
      * @return \Teakowa\Octo\Provider\Kugou\Song
      */
