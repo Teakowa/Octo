@@ -1,7 +1,7 @@
 <?php
 
 use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\Kugou\Song;
+use Teakowa\Octo\Provider\Kugou;
 
 class KugouSongTest extends TestCase
 {
@@ -16,8 +16,8 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song = new Song($mock);
-        $result = $song->new();
+        $song   = new Kugou($mock);
+        $result = $song->song()->new();
 
         $this->assertObjectHasAttribute('hash', $result->data[0]);
     }
@@ -31,8 +31,8 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song = new Song($mock);
-        $result = $song->info($this->hash);
+        $song   = new Kugou($mock);
+        $result = $song->song($this->hash)->info();
 
         $this->assertObjectHasAttribute('hash', $result);
         $this->assertEquals($this->hash, $result->hash);
@@ -47,8 +47,8 @@ class KugouSongTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $song = new Song($mock);
-        $result = $song->special($this->hash);
+        $song   = new Kugou($mock);
+        $result = $song->song($this->hash)->special();
 
         $this->assertObjectHasAttribute('kugou_index', $result->data->info);
         $this->assertObjectHasAttribute('album', $result->data->info);

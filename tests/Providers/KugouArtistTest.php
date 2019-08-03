@@ -1,7 +1,7 @@
 <?php
 
 use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\Kugou\Artist;
+use Teakowa\Octo\Provider\Kugou;
 
 /**
  * Class testKugou.
@@ -19,8 +19,8 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $artist = new Artist($mock);
-        $result = $artist->class();
+        $artist = new Kugou($mock);
+        $result = $artist->artist()->class();
 
         $this->assertEquals(88, $result->list[0]->classid);
     }
@@ -34,8 +34,8 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list = new Artist($mock);
-        $result = $list->list(1);
+        $list   = new Kugou($mock);
+        $result = $list->artist()->list(1);
 
         $this->assertEquals(1, $result->classid);
     }
@@ -49,8 +49,8 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list = new Artist($mock);
-        $result = $list->info($this->id);
+        $list   = new Kugou($mock);
+        $result = $list->artist($this->id)->info();
 
         $this->assertEquals($this->id, $result->info->singerid);
     }
@@ -64,8 +64,8 @@ class KugouArtistTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $list = new Artist($mock);
-        $result = $list->fans($this->id, 70634285);
+        $list   = new Kugou($mock);
+        $result = $list->artist($this->id)->fans(70634285);
 
         $this->assertObjectHasAttribute('fansnum', $result->data);
     }

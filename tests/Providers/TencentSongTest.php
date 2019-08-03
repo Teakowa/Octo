@@ -18,24 +18,9 @@ class TencentSongTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result = $tencent->song()->info($this->id);
+        $result = $tencent->song($this->id)->info();
 
         $this->assertEquals($this->mid, $result->data[0]->mid);
         $this->assertEquals($this->id, $result->data[0]->id);
-    }
-
-    public function testSongUrl()
-    {
-        $response = $this->getPsr7JsonResponseForFixture('Providers/Tencent/url.json');
-
-        $mock = $this->createMock(Adapter::class);
-        $mock->method('get')->willReturn($response);
-
-        $mock->expects($this->once())->method('get');
-
-        $tencent = new Tencent($mock);
-        $result = $tencent->song()->url($this->id, $this->mid);
-
-        $this->assertObjectHasAttribute('url', $result);
     }
 }

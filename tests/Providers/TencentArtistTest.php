@@ -18,7 +18,7 @@ class TencentArtistTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result = $tencent->artist()->info($this->id, null, 1);
+        $result  = $tencent->artist($this->id)->info(1);
 
         $this->assertObjectHasAttribute('list', $result->data);
     }
@@ -33,7 +33,7 @@ class TencentArtistTest extends TestCase
         $mock->expects($this->once())->method('get');
 
         $tencent = new Tencent($mock);
-        $result = $tencent->artist()->fans($this->id);
+        $result  = $tencent->artist($this->id)->fans();
 
         $this->assertObjectHasAttribute('num', $result);
     }
@@ -46,7 +46,7 @@ class TencentArtistTest extends TestCase
         $mock->method('get')->willReturn($response);
 
         $tencent = new Tencent($mock);
-        $result = $tencent->artist()->pic($this->mid);
+        $result  = $tencent->artist($this->id, $this->mid)->pic();
 
         $this->assertObjectHasAttribute('url', $result);
     }
