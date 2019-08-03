@@ -2,7 +2,6 @@
 
 A composer package to simple use music service API.
 
-
 ![Travis (.org)](https://img.shields.io/travis/teakowa/octo?style=flat-square)
 [![StyleCI](https://github.styleci.io/repos/199823129/shield?branch=master)](https://github.styleci.io/repos/199823129)
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/teakowa/octo?style=flat-square)
@@ -31,21 +30,23 @@ $headers = new Teakowa\Octo\Adapter\Headers();
 $adapter = new Teakowa\Octo\Adapter\Guzzle($headers);
 $kugou   = new Teakowa\Octo\Provider\Kugou($adapter);
 $tencent = new Teakowa\Octo\Provider\Tencent($adapter);
-    
 ```
 
 ### Kugou
 
 ```php
-$kugou->artist()->list();
-$kugou->song()->new();
+$kugou->artist($id)->info();
+$kugou->artist($id)->fans();
+$kugou->song($hash)->info();
+$kugou->song($hash)->special();
 ```
 
 ### Tencent
 
 ```php
-$tencent->artist()->info($id);
-$tencent->album()->pic($mid);
+$tencent->artist($id)->info();
+$tencent->album($mid)->pic();
+$tencent->song($mid)->info();
 ```
 
 ## LICENSE
