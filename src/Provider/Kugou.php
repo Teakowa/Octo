@@ -4,6 +4,7 @@ namespace Teakowa\Octo\Provider;
 
 use Teakowa\Octo\Adapter\Adapter;
 use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Provider\Interfaces\API;
 use Teakowa\Octo\Provider\Kugou\Artist;
 use Teakowa\Octo\Provider\Kugou\Song;
 use Teakowa\Octo\Traits\BodyAccessorTrait;
@@ -11,7 +12,7 @@ use Teakowa\Octo\Traits\BodyAccessorTrait;
 /**
  * Class Kugou.
  */
-class Kugou implements API
+final class Kugou implements API
 {
     use BodyAccessorTrait;
     /**

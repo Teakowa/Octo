@@ -4,6 +4,7 @@ namespace Teakowa\Octo\Provider;
 
 use Teakowa\Octo\Adapter\Adapter;
 use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Provider\Interfaces\API;
 use Teakowa\Octo\Provider\Tencent\Album;
 use Teakowa\Octo\Provider\Tencent\Artist;
 use Teakowa\Octo\Provider\Tencent\Song;
@@ -12,7 +13,7 @@ use Teakowa\Octo\Traits\BodyAccessorTrait;
 /**
  * Class Tencent.
  */
-class Tencent implements API
+final class Tencent implements API
 {
     use BodyAccessorTrait;
     /**
