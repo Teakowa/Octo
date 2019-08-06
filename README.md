@@ -26,10 +26,15 @@ composer require teakowa/octo
 ## Usage
 
 ```php
-$headers = new Teakowa\Octo\Adapter\Headers();
-$adapter = new Teakowa\Octo\Adapter\Guzzle($headers);
-$kugou   = new Teakowa\Octo\Provider\Kugou($adapter);
-$tencent = new Teakowa\Octo\Provider\Tencent($adapter);
+use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Adapter\Guzzle as Adapter;
+use Teakowa\Octo\Provider\Kugou;
+use Teakowa\Octo\Provider\Tencent;
+
+$adapter = new Adapter(new Headers());
+$data    = new API($adapter);
+$kugou   = new Kugou($adapter);
+$tencent = new Tencent($adapter);
 ```
 
 ### Kugou
