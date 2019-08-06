@@ -105,4 +105,22 @@ final class Artist implements API
 
         return (object) $this->body;
     }
+
+    /**
+     * Get artist avatar url
+     *
+     * @param  int  $size
+     *
+     * @return \stdClass
+     * @since 1.2.1
+     */
+    public function pic(int $size = 300): \stdClass
+    {
+        $result     = $this->adapter->get($this->url.'singer/info/'.$this->id, ['json' => true,], $this->header);
+        $this->body = json_decode($result->getBody());
+
+        $url = ! empty($this->body->info->imgurl) ? str_replace('{size}', 240, $this->body->info->imgurl) : null;
+
+        return (object) ['url' => $url];
+    }
 }

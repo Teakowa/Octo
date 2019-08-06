@@ -69,4 +69,17 @@ class KugouArtistTest extends TestCase
 
         $this->assertObjectHasAttribute('fansnum', $result->data);
     }
+
+    public function testArtistPic()
+    {
+        $response = $this->getPsr7JsonResponseForFixture('Providers/Tencent/pic.json');
+
+        $mock = $this->createMock(Adapter::class);
+        $mock->method('get')->willReturn($response);
+
+        $tencent = new Kugou($mock);
+        $result = $tencent->artist($this->id)->pic();
+
+        $this->assertObjectHasAttribute('url', $result);
+    }
 }
