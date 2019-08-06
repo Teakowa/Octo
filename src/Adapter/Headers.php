@@ -15,9 +15,9 @@ class Headers implements Header
     /**
      * Headers constructor.
      *
-     * @param array $headers
+     * @param  array  $headers  [optional]
      */
-    public function __construct(array $headers)
+    public function __construct(array $headers = [])
     {
         $this->headers = $headers;
     }
