@@ -3,6 +3,7 @@
 namespace Teakowa\Octo\Provider;
 
 use Teakowa\Octo\Adapter\Adapter;
+use Teakowa\Octo\Adapter\Headers;
 use Teakowa\Octo\Provider\Kugou\Artist;
 use Teakowa\Octo\Provider\Kugou\Song;
 use Teakowa\Octo\Traits\BodyAccessorTrait;
@@ -34,9 +35,7 @@ class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header = [
-            'User-Agent' => 'Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0',
-        ];
+        $this->header  = (new Headers())->getProvider('Kugou');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Teakowa\Octo\Provider;
 
 use Teakowa\Octo\Adapter\Adapter;
+use Teakowa\Octo\Adapter\Headers;
 use Teakowa\Octo\Provider\Tencent\Album;
 use Teakowa\Octo\Provider\Tencent\Artist;
 use Teakowa\Octo\Provider\Tencent\Song;
@@ -35,15 +36,7 @@ class Tencent implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header = [
-            'Referer'         => 'https://y.qq.com/',
-            'Cookie'          => 'pgv_pvi=22038528; pgv_si=s3156287488; pgv_pvid=5535248600; yplayer_open=1; ts_last=y.qq.com/portal/player.html; ts_uid=4847550686; yq_index=0; qqmusic_fromtag=66; player_exist=1',
-            'User-Agent'      => 'QQ%E9%9F%B3%E4%B9%90/54409 CFNetwork/901.1 Darwin/17.6.0 (x86_64)',
-            'Accept'          => '*/*',
-            'Accept-Language' => 'zh-CN,zh;q=0.8,gl;q=0.6,zh-TW;q=0.4',
-            'Connection'      => 'keep-alive',
-            'Content-Type'    => 'application/x-www-form-urlencoded',
-        ];
+        $this->header = (new Headers())->getProvider('Tencent');
     }
 
     /**
