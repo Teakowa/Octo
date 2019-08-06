@@ -36,7 +36,7 @@ final class Kugou implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Kugou');
+        $this->header = (new Headers())->getProvider('Kugou');
     }
 
     /**

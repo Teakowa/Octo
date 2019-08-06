@@ -63,6 +63,9 @@ final class Tencent implements API
     }
 
     /**
+     * @param int|null    $id
+     * @param string|null $mid
+     *
      * @return \Teakowa\Octo\Provider\Tencent\Album
      */
     public function album(int $id = null, string $mid = null): Album

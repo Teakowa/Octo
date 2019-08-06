@@ -46,12 +46,14 @@ final class Album implements API
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Tencent');
-        $this->id      = $id;
-        $this->mid     = $mid;
+        $this->header = (new Headers())->getProvider('Tencent');
+        $this->id = $id;
+        $this->mid = $mid;
     }
 
     /**
+     * Get album info.
+     *
      * @return \stdClass
      */
     public function info(): \stdClass
@@ -69,6 +71,8 @@ final class Album implements API
     }
 
     /**
+     * Get album pic.
+     *
      * @param int $size
      *
      * @return \stdClass

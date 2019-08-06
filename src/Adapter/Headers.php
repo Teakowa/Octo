@@ -15,7 +15,7 @@ class Headers implements Header
     /**
      * Headers constructor.
      *
-     * @param  array  $headers  [optional]
+     * @param array $headers [optional]
      */
     public function __construct(array $headers = [])
     {
@@ -31,9 +31,10 @@ class Headers implements Header
     }
 
     /**
-     * @param  string  $provider
+     * @param string $provider
      *
      * @return array
+     *
      * @since 1.2.1
      */
     public function getProvider(string $provider): array
@@ -41,7 +42,7 @@ class Headers implements Header
         switch ($provider) {
             case 'Kugou':
                 $this->headers =
-                    ['User-Agent' => 'Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0',];
+                    ['User-Agent' => 'Mozilla/5.0 (Linux; Android 5.1; MZ-m1 metal Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0'];
                 break;
             case 'Tencent':
                 $this->headers = [

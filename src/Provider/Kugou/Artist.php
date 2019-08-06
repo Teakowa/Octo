@@ -41,11 +41,13 @@ final class Artist implements API
     public function __construct(Adapter $adapter, int $id = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Kugou');
-        $this->id      = $id;
+        $this->header = (new Headers())->getProvider('Kugou');
+        $this->id = $id;
     }
 
     /**
+     * Get artist class.
+     *
      * @return \stdClass
      */
     public function class(): \stdClass
@@ -57,6 +59,8 @@ final class Artist implements API
     }
 
     /**
+     * Get artist list by class id.
+     *
      * @param int      $id
      * @param int|null $page
      *
@@ -73,6 +77,8 @@ final class Artist implements API
     }
 
     /**
+     * Get artist info by artist id.
+     *
      * @param int|null $page
      *
      * @return \stdClass
@@ -88,7 +94,9 @@ final class Artist implements API
     }
 
     /**
-     * @param int|null $uid
+     * Get artist fans by artist id.
+     *
+     * @param int|null $uid user id, it's will return 'follow' Boolean field.
      *
      * @return \stdClass
      */
@@ -107,19 +115,20 @@ final class Artist implements API
     }
 
     /**
-     * Get artist avatar url
+     * Get artist avatar url.
      *
-     * @param  int  $size
+     * @param int $size
      *
      * @return \stdClass
+     *
      * @since 1.2.1
      */
     public function pic(int $size = 300): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'singer/info/'.$this->id, ['json' => true,], $this->header);
+        $result = $this->adapter->get($this->url.'singer/info/'.$this->id, ['json' => true], $this->header);
         $this->body = json_decode($result->getBody());
 
-        $url = ! empty($this->body->info->imgurl) ? str_replace('{size}', 240, $this->body->info->imgurl) : null;
+        $url = !empty($this->body->info->imgurl) ? str_replace('{size}', 240, $this->body->info->imgurl) : null;
 
         return (object) ['url' => $url];
     }

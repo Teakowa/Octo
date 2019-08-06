@@ -3,9 +3,7 @@
 namespace Teakowa\Octo\Adapter;
 
 /**
- * Interface Header
- *
- * @package Teakowa\Octo\Adapter
+ * Interface Header.
  */
 interface Header
 {
@@ -15,9 +13,10 @@ interface Header
     public function getHeaders(): array;
 
     /**
-     * @param  string  $provider
+     * @param string $provider
      *
      * @return array
+     *
      * @since 1.2.1
      */
     public function getProvider(string $provider): array;

@@ -46,12 +46,14 @@ final class Song implements API
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Tencent');
-        $this->id      = $id;
-        $this->mid     = $mid;
+        $this->header = (new Headers())->getProvider('Tencent');
+        $this->id = $id;
+        $this->mid = $mid;
     }
 
     /**
+     * Get song info by hash.
+     *
      * @return object
      */
     public function info(): \stdClass
@@ -68,10 +70,13 @@ final class Song implements API
     }
 
     /**
-     * This code source from https://github.com/metowolf/Meting/blob/master/src/Meting.php#L1005-L1075
+     * Get song urls.
+     *
+     * This code source from
+     * https://github.com/metowolf/Meting/blob/54178aa112da5db09f487d862d7ae62cbf7bc060/src/Meting.php#L1005-L1075
      * ❤️ Thanks.
      *
-     * @param int $br
+     * @param int $br Audio quality
      *
      * @return \stdClass
      */

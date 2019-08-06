@@ -3,6 +3,7 @@
 namespace Teakowa\Octo\Adapter;
 
 use GuzzleHttp\Client;
+use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
 class Guzzle implements Adapter
@@ -16,7 +17,7 @@ class Guzzle implements Adapter
     {
         $this->client = new Client([
             'base_uri' => $baseURI,
-            'headers'  => $headers->getHeaders(),
+            'headers'  => $headers->getHeaders([]),
             'Accept'   => 'application/json',
         ]);
     }
@@ -64,7 +65,7 @@ class Guzzle implements Adapter
     public function request(string $method, string $uri, array $data = [], array $headers = [])
     {
         if (!in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
-            throw new \InvalidArgumentException('Request method must be get, post, put, patch, or delete');
+            throw new InvalidArgumentException('Request method must be get, post, put, patch, or delete');
         }
 
         $response = $this->client->$method($uri, [

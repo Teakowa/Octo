@@ -39,20 +39,22 @@ final class Artist implements API
     /**
      * Artist constructor.
      *
-     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
-     * @param  int|null  $id
-     * @param  string|null  $mid
+     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param int|null                      $id
+     * @param string|null                   $mid
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Tencent');
-        $this->id      = $id;
-        $this->mid     = $mid;
+        $this->header = (new Headers())->getProvider('Tencent');
+        $this->id = $id;
+        $this->mid = $mid;
     }
 
     /**
-     * @param  int  $limit
+     * Get artist info.
+     *
+     * @param int $limit
      *
      * @return \stdClass
      */
@@ -74,6 +76,8 @@ final class Artist implements API
     }
 
     /**
+     * Get artist fans total.
+     *
      * @return \stdClass
      */
     public function fans(): \stdClass
@@ -90,7 +94,9 @@ final class Artist implements API
     }
 
     /**
-     * @param int $size
+     * Get artist avatar url.
+     *
+     * @param int $size image px size
      *
      * @return \stdClass
      */

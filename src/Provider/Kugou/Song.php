@@ -12,10 +12,6 @@ use Teakowa\Octo\Provider\Interfaces\Song as API;
 final class Song implements API
 {
     /**
-     * @var int
-     */
-    private $id;
-    /**
      * @var \Teakowa\Octo\Adapter\Adapter
      */
     private $adapter;
@@ -32,7 +28,7 @@ final class Song implements API
      */
     private $body;
     /**
-     * @var string
+     * @var string|null
      */
     private $hash;
 
@@ -45,11 +41,13 @@ final class Song implements API
     public function __construct(Adapter $adapter, string $hash = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Kugou');
-        $this->hash    = $hash;
+        $this->header = (new Headers())->getProvider('Kugou');
+        $this->hash = $hash;
     }
 
     /**
+     * Get new release songs.
+     *
      * @return \stdClass
      */
     public function new(): \stdClass
@@ -61,6 +59,8 @@ final class Song implements API
     }
 
     /**
+     * Get song info by hash.
+     *
      * @return \stdClass
      */
     public function info(): \stdClass
@@ -74,6 +74,8 @@ final class Song implements API
     }
 
     /**
+     * Get song special info by hash.
+     *
      * @return \stdClass
      */
     public function special(): \stdClass
