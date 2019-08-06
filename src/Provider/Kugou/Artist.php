@@ -3,21 +3,34 @@
 namespace Teakowa\Octo\Provider\Kugou;
 
 use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\Kugou;
+use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Provider\Interfaces\Artist as API;
 
 /**
  * Class Artist.
  */
-class Artist extends Kugou
+final class Artist implements API
 {
-    /**
-     * @var
-     */
-    private $body;
     /**
      * @var int
      */
     private $id;
+    /**
+     * @var \Teakowa\Octo\Adapter\Adapter
+     */
+    private $adapter;
+    /**
+     * @var array
+     */
+    private $header;
+    /**
+     * @var string
+     */
+    private $url = 'http://m.kugou.com/';
+    /**
+     * @var
+     */
+    private $body;
 
     /**
      * Artist constructor.
@@ -27,8 +40,9 @@ class Artist extends Kugou
      */
     public function __construct(Adapter $adapter, int $id = null)
     {
-        parent::__construct($adapter);
-        $this->id = $id;
+        $this->adapter = $adapter;
+        $this->header  = (new Headers())->getProvider('Kugou');
+        $this->id      = $id;
     }
 
     /**

@@ -3,13 +3,30 @@
 namespace Teakowa\Octo\Provider\Kugou;
 
 use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\Kugou;
+use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Provider\Interfaces\Song as API;
 
 /**
  * Class Song.
  */
-class Song extends Kugou
+final class Song implements API
 {
+    /**
+     * @var int
+     */
+    private $id;
+    /**
+     * @var \Teakowa\Octo\Adapter\Adapter
+     */
+    private $adapter;
+    /**
+     * @var array
+     */
+    private $header;
+    /**
+     * @var string
+     */
+    private $url = 'http://m.kugou.com/';
     /**
      * @var
      */
@@ -27,8 +44,9 @@ class Song extends Kugou
      */
     public function __construct(Adapter $adapter, string $hash = null)
     {
-        parent::__construct($adapter);
-        $this->hash = $hash;
+        $this->adapter = $adapter;
+        $this->header  = (new Headers())->getProvider('Kugou');
+        $this->hash    = $hash;
     }
 
     /**

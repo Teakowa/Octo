@@ -3,13 +3,26 @@
 namespace Teakowa\Octo\Provider\Tencent;
 
 use Teakowa\Octo\Adapter\Adapter;
-use Teakowa\Octo\Provider\Tencent;
+use Teakowa\Octo\Adapter\Headers;
+use Teakowa\Octo\Provider\Interfaces\Album as API;
 
 /**
  * Class Album.
  */
-class Album extends Tencent
+final class Album implements API
 {
+    /**
+     * @var \Teakowa\Octo\Adapter\Adapter
+     */
+    private $adapter;
+    /**
+     * @var array
+     */
+    private $header;
+    /**
+     * @var string
+     */
+    private $url = 'https://i.y.qq.com/';
     /**
      * @var int|null
      */
@@ -18,6 +31,10 @@ class Album extends Tencent
      * @var string|null
      */
     private $mid;
+    /**
+     * @var
+     */
+    private $body;
 
     /**
      * Album constructor.
@@ -28,15 +45,11 @@ class Album extends Tencent
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
-        parent::__construct($adapter);
-        $this->id = $id;
-        $this->mid = $mid;
+        $this->adapter = $adapter;
+        $this->header  = (new Headers())->getProvider('Tencent');
+        $this->id      = $id;
+        $this->mid     = $mid;
     }
-
-    /**
-     * @var
-     */
-    private $body;
 
     /**
      * @return \stdClass
