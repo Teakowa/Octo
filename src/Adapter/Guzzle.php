@@ -7,9 +7,7 @@ use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class Guzzle
- *
- * @package Teakowa\Octo\Adapter
+ * Class Guzzle.
  */
 final class Guzzle implements Adapter
 {
