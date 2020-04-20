@@ -38,8 +38,8 @@ final class Album implements API
     public function __construct(Adapter $adapter, int $id = null)
     {
         $this->adapter = $adapter;
-        $this->header  = (new Headers())->getProvider('Kugou');
-        $this->id      = $id;
+        $this->header = (new Headers())->getProvider('Kugou');
+        $this->id = $id;
     }
 
     /**
@@ -50,7 +50,7 @@ final class Album implements API
      */
     public function info(): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'app/i/getablum.php', [
+        $result = $this->adapter->get($this->url.'app/i/getablum.php', [
             'type'    => 1,
             'ablumid' => $this->id,
         ], $this->header);
@@ -69,7 +69,7 @@ final class Album implements API
      */
     public function pic(int $size = 300): \stdClass
     {
-        $result     = $this->adapter->get($this->url.'app/i/getablum.php', [
+        $result = $this->adapter->get($this->url.'app/i/getablum.php', [
             'type'    => 1,
             'ablumid' => $this->id,
         ], $this->header);
