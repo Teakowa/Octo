@@ -35,8 +35,8 @@ final class Song implements API
     /**
      * Song constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
-     * @param string|null                   $hash
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  string|null  $hash
      */
     public function __construct(Adapter $adapter, string $hash = null)
     {

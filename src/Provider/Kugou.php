@@ -32,7 +32,7 @@ final class Kugou implements API
     /**
      * Kugou constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
      */
     public function __construct(Adapter $adapter)
     {
@@ -41,7 +41,7 @@ final class Kugou implements API
     }
 
     /**
-     * @param int|null $id
+     * @param  int|null  $id
      *
      * @return \Teakowa\Octo\Provider\Kugou\Artist
      */
@@ -51,7 +51,7 @@ final class Kugou implements API
     }
 
     /**
-     * @param string|null $hash
+     * @param  string|null  $hash
      *
      * @return \Teakowa\Octo\Provider\Kugou\Song
      */
@@ -61,7 +61,7 @@ final class Kugou implements API
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      *
      * @return \Teakowa\Octo\Provider\Kugou\Album
      */
@@ -71,8 +71,8 @@ final class Kugou implements API
     }
 
     /**
-     * @param string   $keyword
-     * @param int|null $page
+     * @param  string  $keyword
+     * @param  int|null  $page
      *
      * @return \stdClass
      */

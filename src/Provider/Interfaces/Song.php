@@ -12,7 +12,7 @@ interface Song
     /**
      * Song constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
      */
     public function __construct(Adapter $adapter);
 
