@@ -12,8 +12,8 @@ interface Artist
     /**
      * Artist constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
-     * @param int|null                      $id
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  int|null  $id
      */
     public function __construct(Adapter $adapter, int $id = null);
 
@@ -23,7 +23,7 @@ interface Artist
     public function info(): \stdClass;
 
     /**
-     * @param int $size
+     * @param  int  $size
      *
      * @return \stdClass
      */

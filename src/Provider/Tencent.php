@@ -32,7 +32,7 @@ final class Tencent implements API
     /**
      * Tencent constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
      */
     public function __construct(Adapter $adapter)
     {
@@ -41,8 +41,8 @@ final class Tencent implements API
     }
 
     /**
-     * @param int|null    $id
-     * @param string|null $mid
+     * @param  int|null  $id
+     * @param  string|null  $mid
      *
      * @return \Teakowa\Octo\Provider\Tencent\Artist
      */
@@ -52,8 +52,8 @@ final class Tencent implements API
     }
 
     /**
-     * @param int|null    $id
-     * @param string|null $mid
+     * @param  int|null  $id
+     * @param  string|null  $mid
      *
      * @return \Teakowa\Octo\Provider\Tencent\Song
      */
@@ -63,8 +63,8 @@ final class Tencent implements API
     }
 
     /**
-     * @param int|null    $id
-     * @param string|null $mid
+     * @param  int|null  $id
+     * @param  string|null  $mid
      *
      * @return \Teakowa\Octo\Provider\Tencent\Album
      */
@@ -74,18 +74,18 @@ final class Tencent implements API
     }
 
     /**
-     * @param string   $keyword
-     * @param int|null $page
-     * @param int|null $limit
+     * @param  string  $keyword
+     * @param  int|null  $page
+     * @param  int|null  $limit
      *
      * @return \stdClass
      */
     public function search(string $keyword, int $page = 1, int $limit = 30): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/client_search_cp.fcg', [
-            'p'      => $page,
-            'n'      => $limit,
-            'w'      => $keyword,
+            'p' => $page,
+            'n' => $limit,
+            'w' => $keyword,
             'format' => 'json',
         ], $this->header);
         $this->body = json_decode($result->getBody());
@@ -94,16 +94,16 @@ final class Tencent implements API
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      *
      * @return \stdClass
      */
     public function playlist(int $id): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_playlist_cp.fcg', [
-            'id'       => $id,
-            'format'   => 'json',
-            'newsong'  => 1,
+            'id' => $id,
+            'format' => 'json',
+            'newsong' => 1,
             'platform' => 'jqspaframe.json',
         ], $this->header);
         $this->body = json_decode($result->getBody());

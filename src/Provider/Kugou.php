@@ -5,6 +5,7 @@ namespace Teakowa\Octo\Provider;
 use Teakowa\Octo\Adapter\Adapter;
 use Teakowa\Octo\Adapter\Headers;
 use Teakowa\Octo\Provider\Interfaces\API;
+use Teakowa\Octo\Provider\Kugou\Album;
 use Teakowa\Octo\Provider\Kugou\Artist;
 use Teakowa\Octo\Provider\Kugou\Song;
 use Teakowa\Octo\Traits\BodyAccessorTrait;
@@ -31,7 +32,7 @@ final class Kugou implements API
     /**
      * Kugou constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
      */
     public function __construct(Adapter $adapter)
     {
@@ -40,7 +41,7 @@ final class Kugou implements API
     }
 
     /**
-     * @param int|null $id
+     * @param  int|null  $id
      *
      * @return \Teakowa\Octo\Provider\Kugou\Artist
      */
@@ -50,7 +51,7 @@ final class Kugou implements API
     }
 
     /**
-     * @param string|null $hash
+     * @param  string|null  $hash
      *
      * @return \Teakowa\Octo\Provider\Kugou\Song
      */
@@ -60,22 +61,18 @@ final class Kugou implements API
     }
 
     /**
-     * @param int $id
+     * @param  int  $id
      *
-     * @return \stdClass
+     * @return \Teakowa\Octo\Provider\Kugou\Album
      */
-    public function album(int $id): \stdClass
+    public function album(int $id): Album
     {
-        $url = 'http://m.kugou.com/app/i/getablum.php';
-        $album = $this->adapter->get($url, ['type' => 1, 'ablumid' => $id]);
-        $this->body = json_decode($album->getBody());
-
-        return (object) $this->body;
+        return new Album($this->adapter, $id);
     }
 
     /**
-     * @param string   $keyword
-     * @param int|null $page
+     * @param  string  $keyword
+     * @param  int|null  $page
      *
      * @return \stdClass
      */

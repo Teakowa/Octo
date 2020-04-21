@@ -39,9 +39,9 @@ final class Artist implements API
     /**
      * Artist constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
-     * @param int|null                      $id
-     * @param string|null                   $mid
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  int|null  $id
+     * @param  string|null  $mid
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
@@ -54,21 +54,21 @@ final class Artist implements API
     /**
      * Get artist info.
      *
-     * @param int $limit
+     * @param  int  $limit
      *
      * @return \stdClass
      */
     public function info(int $limit = 20): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_singer_track_cp.fcg', [
-            'singerid'  => $this->id,
+            'singerid' => $this->id,
             'singermid' => $this->mid,
-            'begin'     => 0,
-            'num'       => $limit,
-            'order'     => 'listen',
-            'platform'  => 'mac',
-            'newsong'   => 1,
-            'format'    => 'json',
+            'begin' => 0,
+            'num' => $limit,
+            'order' => 'listen',
+            'platform' => 'mac',
+            'newsong' => 1,
+            'format' => 'json',
         ], $this->header);
         $this->body = json_decode($result->getBody());
 
@@ -83,9 +83,9 @@ final class Artist implements API
     public function fans(): \stdClass
     {
         $result = $this->adapter->get($this->url.'rsc/fcgi-bin/fcg_order_singer_getnum.fcg', [
-            'singerid'  => $this->id,
+            'singerid' => $this->id,
             'singermid' => $this->mid,
-            'format'    => 'json',
+            'format' => 'json',
         ], $this->header);
 
         $this->body = json_decode($result->getBody());
@@ -96,25 +96,25 @@ final class Artist implements API
     /**
      * Get artist avatar url.
      *
-     * @param int $size image px size
+     * @param  int  $size  image px size
      *
      * @return \stdClass
      */
     public function pic(int $size = 300): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_v8_singer_track_cp.fcg', [
-            'singerid'  => $this->id,
+            'singerid' => $this->id,
             'singermid' => $this->mid,
-            'begin'     => 0,
-            'num'       => 1,
-            'order'     => 'listen',
-            'platform'  => 'mac',
-            'newsong'   => 1,
-            'format'    => 'json',
+            'begin' => 0,
+            'num' => 1,
+            'order' => 'listen',
+            'platform' => 'mac',
+            'newsong' => 1,
+            'format' => 'json',
         ], $this->header);
         $this->body = json_decode($result->getBody());
 
-        $mid = !empty($this->mid) ? $this->mid : $this->body->data->singer_mid;
+        $mid = ! empty($this->mid) ? $this->mid : $this->body->data->singer_mid;
         $url = 'https://y.gtimg.cn/music/photo_new/T001R'.$size.'x'.$size.'M000'.$mid.'.jpg?max_age=2592000';
 
         return (object) ['url' => $url];

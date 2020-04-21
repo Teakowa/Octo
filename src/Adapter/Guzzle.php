@@ -6,8 +6,14 @@ use GuzzleHttp\Client;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 
-class Guzzle implements Adapter
+/**
+ * Class Guzzle.
+ */
+final class Guzzle implements Adapter
 {
+    /**
+     * @var \GuzzleHttp\Client
+     */
     private $client;
 
     /**
@@ -17,7 +23,7 @@ class Guzzle implements Adapter
     {
         $this->client = new Client([
             'base_uri' => $baseURI,
-            'headers'  => $headers->getHeaders([]),
+            'headers'  => $headers->getHeaders(),
             'Accept'   => 'application/json',
         ]);
     }
@@ -62,9 +68,19 @@ class Guzzle implements Adapter
         return $this->request('delete', $uri, $data, $headers);
     }
 
-    public function request(string $method, string $uri, array $data = [], array $headers = [])
+    /**
+     * @param  string  $method
+     * @param  string  $uri
+     * @param  array  $data
+     * @param  array  $headers
+     *
+     * @return mixed
+     * @throws \Teakowa\Octo\Adapter\JSONException
+     * @throws \Teakowa\Octo\Adapter\ResponseException
+     */
+    public function request(string $method, string $uri, array $data = [], array $headers = []): Client
     {
-        if (!in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
+        if (! in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
             throw new InvalidArgumentException('Request method must be get, post, put, patch, or delete');
         }
 
@@ -78,7 +94,13 @@ class Guzzle implements Adapter
         return $response;
     }
 
-    private function checkError(ResponseInterface $response)
+    /**
+     * @param  \Psr\Http\Message\ResponseInterface  $response
+     *
+     * @throws \Teakowa\Octo\Adapter\JSONException
+     * @throws \Teakowa\Octo\Adapter\ResponseException
+     */
+    private function checkError(ResponseInterface $response): void
     {
         $json = json_decode($response->getBody());
 
@@ -90,7 +112,7 @@ class Guzzle implements Adapter
             throw new ResponseException($json->errors[0]->message, $json->errors[0]->code);
         }
 
-        if (isset($json->success) && !$json->success) {
+        if (isset($json->success) && ! $json->success) {
             throw new ResponseException('Request was unsuccessful.');
         }
     }

@@ -39,9 +39,9 @@ final class Song implements API
     /**
      * Song constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
-     * @param int|null                      $id
-     * @param string|null                   $mid
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  int|null  $id
+     * @param  string|null  $mid
      */
     public function __construct(Adapter $adapter, int $id = null, string $mid = null)
     {
@@ -59,10 +59,10 @@ final class Song implements API
     public function info(): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
-            'songid'   => $this->id,
-            'songmid'  => $this->mid,
+            'songid' => $this->id,
+            'songmid' => $this->mid,
             'platform' => 'yqq',
-            'format'   => 'json',
+            'format' => 'json',
         ], $this->header);
         $this->body = json_decode($result->getBody());
 
@@ -76,17 +76,17 @@ final class Song implements API
      * https://github.com/metowolf/Meting/blob/54178aa112da5db09f487d862d7ae62cbf7bc060/src/Meting.php#L1005-L1075
      * ❤️ Thanks.
      *
-     * @param int $br Audio quality
+     * @param  int  $br  Audio quality
      *
      * @return \stdClass
      */
     public function url(int $br = 320): \stdClass
     {
         $result = $this->adapter->get($this->url.'v8/fcg-bin/fcg_play_single_song.fcg', [
-            'songid'   => $this->id,
-            'songmid'  => $this->mid,
+            'songid' => $this->id,
+            'songmid' => $this->mid,
             'platform' => 'yqq',
-            'format'   => 'json',
+            'format' => 'json',
         ], $this->header);
         $data = json_decode($result->getBody(), true);
 
@@ -103,14 +103,14 @@ final class Song implements API
             'req_0' => [
                 'module' => 'vkey.GetVkeyServer',
                 'method' => 'CgiGetVkey',
-                'param'  => [
-                    'guid'      => (string) $guid,
-                    'songmid'   => [],
-                    'filename'  => [],
-                    'songtype'  => [],
-                    'uin'       => '0',
+                'param' => [
+                    'guid' => (string) $guid,
+                    'songmid' => [],
+                    'filename' => [],
+                    'songtype' => [],
+                    'uin' => '0',
                     'loginflag' => 1,
-                    'platform'  => '20',
+                    'platform' => '20',
                 ],
             ],
         ];
@@ -122,31 +122,31 @@ final class Song implements API
         }
 
         $result = $this->adapter->get('https://u.y.qq.com/cgi-bin/musicu.fcg', [
-            'format'      => 'json',
-            'platform'    => 'yqq.json',
+            'format' => 'json',
+            'platform' => 'yqq.json',
             'needNewCode' => 0,
-            'data'        => json_encode($payload),
+            'data' => json_encode($payload),
         ], $this->header);
 
         $response = json_decode($result->getBody(), true);
         $vkeys = $response['req_0']['data']['midurlinfo'];
         foreach ($type as $index => $vo) {
             if ($data['data'][0]['file'][$vo[0]] && $vo[1] <= $br) {
-                if (!empty($vkeys[$index]['vkey'])) {
+                if (! empty($vkeys[$index]['vkey'])) {
                     $url = [
-                        'url'  => $response['req_0']['data']['sip'][0].$vkeys[$index]['purl'],
+                        'url' => $response['req_0']['data']['sip'][0].$vkeys[$index]['purl'],
                         'size' => $data['data'][0]['file'][$vo[0]],
-                        'br'   => $vo[1],
+                        'br' => $vo[1],
                     ];
                     break;
                 }
             }
         }
-        if (!isset($url['url'])) {
+        if (! isset($url['url'])) {
             $url = [
-                'url'  => '',
+                'url' => '',
                 'size' => 0,
-                'br'   => -1,
+                'br' => -1,
             ];
         }
 

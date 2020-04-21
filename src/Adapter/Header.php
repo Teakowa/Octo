@@ -13,7 +13,7 @@ interface Header
     public function getHeaders(): array;
 
     /**
-     * @param string $provider
+     * @param  string  $provider
      *
      * @return array
      *

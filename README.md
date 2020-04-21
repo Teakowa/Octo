@@ -41,6 +41,7 @@ $tencent = new Tencent($adapter);
 
 ```php
 $kugou->artist($id)->info();
+$kugou->artist($id)->pic();
 $kugou->artist($id)->fans();
 $kugou->song($hash)->info();
 $kugou->song($hash)->special();

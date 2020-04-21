@@ -12,12 +12,12 @@ interface API
     /**
      * API constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
      */
     public function __construct(Adapter $adapter);
 
     /**
-     * @param int|null $id
+     * @param  int|null  $id
      *
      * @return mixed
      */
@@ -29,14 +29,14 @@ interface API
     public function song();
 
     /**
-     * @param int $id
+     * @param  int  $id
      *
      * @return mixed
      */
     public function album(int $id);
 
     /**
-     * @param string $keyword
+     * @param  string  $keyword
      *
      * @return mixed
      */

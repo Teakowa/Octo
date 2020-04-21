@@ -35,8 +35,8 @@ final class Artist implements API
     /**
      * Artist constructor.
      *
-     * @param \Teakowa\Octo\Adapter\Adapter $adapter
-     * @param int|null                      $id
+     * @param  \Teakowa\Octo\Adapter\Adapter  $adapter
+     * @param  int|null  $id
      */
     public function __construct(Adapter $adapter, int $id = null)
     {
@@ -61,8 +61,8 @@ final class Artist implements API
     /**
      * Get artist list by class id.
      *
-     * @param int      $id
-     * @param int|null $page
+     * @param  int  $id
+     * @param  int|null  $page
      *
      * @return \stdClass
      */
@@ -79,7 +79,7 @@ final class Artist implements API
     /**
      * Get artist info by artist id.
      *
-     * @param int|null $page
+     * @param  int|null  $page
      *
      * @return \stdClass
      */
@@ -96,7 +96,7 @@ final class Artist implements API
     /**
      * Get artist fans by artist id.
      *
-     * @param int|null $uid user id, it's will return 'follow' Boolean field.
+     * @param  int|null  $uid  user id, it's will return 'follow' Boolean field.
      *
      * @return \stdClass
      */
@@ -104,10 +104,10 @@ final class Artist implements API
     {
         $this->url = 'http://public.service.kugou.com/user/singer';
         $fans = $this->adapter->get($this->url, [
-            'action'   => 'getfansnum',
-            'uid'      => $uid,
+            'action' => 'getfansnum',
+            'uid' => $uid,
             'singerid' => $this->id,
-            'json'     => true,
+            'json' => true,
         ], $this->header);
         $this->body = json_decode($fans->getBody());
 
@@ -117,7 +117,7 @@ final class Artist implements API
     /**
      * Get artist avatar url.
      *
-     * @param int $size
+     * @param  int  $size
      *
      * @return \stdClass
      *
@@ -128,7 +128,7 @@ final class Artist implements API
         $result = $this->adapter->get($this->url.'singer/info/'.$this->id, ['json' => true], $this->header);
         $this->body = json_decode($result->getBody());
 
-        $url = !empty($this->body->info->imgurl) ? str_replace('{size}', 240, $this->body->info->imgurl) : null;
+        $url = ! empty($this->body->info->imgurl) ? str_replace('{size}', 240, $this->body->info->imgurl) : null;
 
         return (object) ['url' => $url];
     }
